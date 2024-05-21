@@ -44,7 +44,7 @@ def main() -> None:
         help="Prediction type of the scheduler function, 'epsilon', 'sample', or 'v_prediction'",
     )
     parser.add_argument(
-        "--num_steps", type=int, default=1_000, help="Number of inference steps"
+        "--num_steps", type=int, default=2_000, help="Number of inference steps"
     )
     parser.add_argument("--strength", type=float, default=1.0, help="How much to paint")
     parser.add_argument(
@@ -87,7 +87,7 @@ def main() -> None:
         help="Number of repetitions in inference for each audio",
     )
     parser.add_argument(
-        "--batch_size", type=int, default=32, help="Batch size for the repetition"
+        "--batch_size", type=int, default=64, help="Batch size for the repetition"
     )
     parser.add_argument(
         "--seed",
