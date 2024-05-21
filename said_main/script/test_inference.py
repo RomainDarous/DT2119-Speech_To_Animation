@@ -189,7 +189,7 @@ def main() -> None:
                     guidance_scale=guidance_scale,
                     guidance_rescale=guidance_rescale,
                     eta=eta,
-                    show_process=True,
+                    show_process=False,
                 )
 
                 results = output.result[:, :window_len].cpu().numpy()
