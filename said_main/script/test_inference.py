@@ -129,13 +129,13 @@ def main() -> None:
     said_model.to(device)
     said_model.eval()
     
-    # Renaming test files
+    """# Renaming test files
     audio_path = audio_dir + '/FaceTalk_Romain_Darous_test/'
 
     files = [path for path in os.listdir(audio_path) if path.endswith('.wav')]
 
     for i, file in enumerate(files) : 
-        os.rename(audio_path + file, audio_path + f'sequence{i+1:04}.wav')
+        os.rename(audio_path + file, audio_path + f'sequence{i+1:04}.wav')"""
 
     # Load data
     test_dataset = BlendVOCATestDataset(
