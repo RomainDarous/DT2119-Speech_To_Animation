@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "said"
+version = "0.5.0"
+description = "SAiD: Speech-driven Blendshape Facial Animation with Diffusion"
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    { name = "inkyupark", email = "inkyupark@krafton.com" },
+]
+dependencies = [
+    "cvxopt",
+    "diffusers[torch]==0.19.*",
+    "einops",
+    "librosa",
+    "numpy",
+    "pandas",
+    "pillow",
+    "pytorch-fid",
+    "qpsolvers",
+    "scikit-learn",
+    "scipy",
+    "torch",
+    "torchaudio",
+    "tqdm",
+    "transformers==4.30.2",
+    "trimesh",
+]
+
+[project.optional-dependencies]
+train = [
+    "accelerate==0.16.0",
+    "tensorboard",
+]
+render = [
+    "moviepy",
+    "opencv-python",
+    "pyrender",
+]
+style = [
+    "black",
+]
+dev = [
+    "said[render, style, train]",
+]
+
+[tool.setuptools]
+packages = ["said"]
+
+[tool.black]
+include = '''
+/(
+    blender-addon
+  | said
+  | script
+)/.*\.py$
+'''
