@@ -53,13 +53,13 @@ def load_blendshape_coeffs(coeffs_path: str) -> torch.FloatTensor:
 
 
 # Allows to generate the TimeCode of the file
-def generate_time_codes(nb_samples):
+def generate_time_codes(nb_samples, fps):
     time_code = []
     for i in range(nb_samples) :
-        imgs = i % 30
-        secs = (i // 30) % 60
-        mins = i // (30*60) % 60
-        hs = i // (30 * 3600)
+        imgs = i % fps
+        secs = (i // fps) % 60
+        mins = i // (fps*60) % 60
+        hs = i // (fps * 3600)
 
         l = [hs, mins, secs, imgs]
         l_str = [str(t) if t > 10 else f'0{t}' for t in l]
@@ -69,7 +69,7 @@ def generate_time_codes(nb_samples):
     return time_code
 
 def save_blendshape_coeffs(
-    coeffs: np.ndarray, classes: List[str], output_path: str
+    coeffs: np.ndarray, classes: List[str], output_path: str, fps = 30
 ) -> None:
     """Save the blendshape coefficients into the file
 
@@ -91,7 +91,7 @@ def save_blendshape_coeffs(
 
     front_coeffs = []
     front_coeffs.append(np.ones(T_b) * 61)
-    front_coeffs.append(generate_time_codes(T_b))
+    front_coeffs.append(generate_time_codes(T_b, fps))
 
     for classe, coeff in zip(front_classes, front_coeffs) :
         pout.insert(0, classe, coeff)

@@ -204,6 +204,7 @@ def main() -> None:
                         coeffs=result,
                         classes=BlendVOCADataset.default_blendshape_classes,
                         output_path=output_path,
+                        fps=fps
                     )
 
 
