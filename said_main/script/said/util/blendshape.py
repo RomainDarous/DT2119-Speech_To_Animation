@@ -62,7 +62,7 @@ def generate_time_codes(nb_samples, fps):
         hs = i // (fps * 3600)
 
         l = [hs, mins, secs, imgs]
-        l_str = [str(t) if t > 10 else f'0{t}' for t in l]
+        l_str = [str(t) if t > 9 else f'0{t}' for t in l]
         time = ":".join(l_str) + '.000'
         time_code.append(time)
 
