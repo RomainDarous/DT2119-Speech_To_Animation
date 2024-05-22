@@ -83,7 +83,7 @@ def main() -> None:
     parser.add_argument(
         "--num_repeats",
         type=int,
-        default=72,
+        default=144,
         help="Number of repetitions in inference for each audio",
     )
     parser.add_argument(
@@ -92,7 +92,7 @@ def main() -> None:
     parser.add_argument(
         "--seed",
         type=int,
-        default=0,
+        default=1,
         help="Random seed. Set the negative value if you don't want to control the randomness",
     )
     args = parser.parse_args()
